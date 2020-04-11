@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'stats#index'
-
-  resources :stats, only: :index
+  resources :items, only: :index do
+    post :filter, on: :collection
+  end
+  root 'items#index'
 end

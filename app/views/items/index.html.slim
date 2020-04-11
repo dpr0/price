@@ -1,0 +1,37 @@
+section#section1.signup-section.bg-black.text-center
+  .container
+    .row
+      .row class="mb-5 mb-lg-0"
+        .col-lg-6
+          .text-center
+            .d-flex.h-100
+              .project-text.w-100.my-auto.text-center class="text-lg-left"
+                h4.text-white Категории
+                p.mb-0.text-white-50
+                  - @categories.each do |cat|
+                    div
+                      span = link_to cat.name, items_path(category_id: cat.id)
+        .col-lg-6
+          .text-center
+            .d-flex.h-100
+              .project-text.w-100.my-auto.text-center class="text-lg-left"
+                h4.text-white Производители
+                p.mb-0.text-white-50
+                  = form_tag '', id: 'form', remote: true
+                    - @manufacturers.each do |man|
+                      .form-check
+                        .custom-control.custom-checkbox
+                          input.custom-control-input type="checkbox" id="manufacturer_#{man.id}" class="manufacturer"
+                          label.custom-control-label.text-white for="manufacturer_#{man.id}" = man.name
+
+    .filter
+      = render partial: 'filter'
+
+section.about-section.bg-black.text-center
+  .container
+    .row
+
+javascript:
+    $( () => $('.manufacturer').on('change', () => {
+        $.post("#{filter_items_path}", {data: 1});
+    }));

@@ -1,0 +1,16 @@
+.row
+  table.table.table-dark.table-striped.table-bordered
+    tr
+      thead
+        th Наименование
+        th Номинал
+        th Тип
+        th Количество
+        th Цена
+    - @items.each do |item|
+      tr
+        td.text-left = item.name
+        td = item.value
+        td = item.item_type
+        td = item.qty
+        td.text-right = "#{item.price}₽"
