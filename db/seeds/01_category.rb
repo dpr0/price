@@ -5,3 +5,4 @@ Category.create(code: 'controllers', name: 'Контроллеры')
 Category.create(code: 'ram',         name: 'Оперативная память')
 
 Manufacturer.create(code: 'kingston', name: 'Kingston')
+Manufacturer.create(code: 'noname',   name: 'Noname')
