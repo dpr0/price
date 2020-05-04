@@ -8,9 +8,9 @@ section#section1.signup-section.bg-black.text-center
               .project-text.w-100.my-auto.text-center class="text-lg-left"
                 h4.text-white Категории
                 p.mb-0.text-white-50
-                  - @categories.each do |cat|
+                  - Category.all_cached.each do |ctg|
                     div
-                      span = link_to cat.name, items_path(category_id: cat.id)
+                      span = link_to ctg.name, items_path(category_id: ctg.id)
         .col-lg-6
           .text-center
             .d-flex.h-100
@@ -18,10 +18,10 @@ section#section1.signup-section.bg-black.text-center
                 h4.text-white Производители
                 p.mb-0.text-white-50
                   = form_tag '', id: 'form', remote: true
-                    - @manufacturers.each do |man|
+                    - Manufacturer.all_cached.each do |man|
                       .form-check
                         .custom-control.custom-checkbox
-                          input.custom-control-input type="checkbox" id="manufacturer_#{man.id}" class="manufacturer"
+                          input.custom-control-input type="checkbox" id="manufacturer_#{man.id}" class="manufacturer" data-id="#{man.id}"
                           label.custom-control-label.text-white for="manufacturer_#{man.id}" = man.name
 
     .filter
@@ -32,6 +32,11 @@ section.about-section.bg-black.text-center
     .row
 
 javascript:
-    $( () => $('.manufacturer').on('change', () => {
-        $.post("#{filter_items_path}", {data: 1});
+    $( () => $('.manufacturer').on('change', (checkbox) => {
+        debugger;
+        var mnf_ids = $("#form input[type='checkbox']").map((i, el) => { if (el.checked) return el.dataset.id });
+        var params = { manufacturer_ids: mnf_ids.toArray() };
+        var searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.has('category_id')) params.category_id = searchParams.get('category_id');
+        $.post("#{filter_items_path}", params);
     }));
