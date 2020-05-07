@@ -17,6 +17,9 @@ gem 'chartkick'
 gem 'cocoon'
 gem 'rest-client'
 gem 'puma'
+gem 'devise'
+gem 'omniauth-yandex'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
 group :development do
   gem 'sqlite3'

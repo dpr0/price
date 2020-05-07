@@ -1,0 +1,74 @@
+class UsersController < ApplicationController
+
+  def index
+    head(:ok)
+  end
+
+  def auth
+    "http://localhost:3000/users/auth/yandex/callback"
+
+    params[:state]         # https://social.yandex.ru/broker2/authz_in_web/a6017f00612a4a5c961dedfdc062d7cd/callback
+    params[:redirect_uri]  # https://social.yandex.net/broker/redirect
+    params[:response_type] # code
+    params[:client_id]     # dvitvitskiy.pro@gmail.com
+    render status: :ok, json: { request_id: '' }
+  end
+
+  def unlink
+    render status: :ok, json: { request_id: '' }
+  end
+
+  def devices
+    render status: :ok, json: {
+        request_id: '',
+        payload: {
+            user_id: '',
+            devices: [
+                {
+                    id: '',
+                    name: '',
+                    description: '',
+                    room: '',
+                    type: '',
+                    custom_data: {},
+                    capabilities: [
+                        capability1: {},
+                        capability2: {}
+                    ],
+                    properties: [
+                        property1: {},
+                        property2: {}
+                    ],
+                    device_info: {
+                        manufacturer: '',
+                        model: '',
+                        hw_version: '',
+                        sw_version: ''
+                    }
+                }
+            ]
+        }
+    }
+  end
+
+  def query
+    render status: :ok, json: { devices: [ { id: '', custom_data: {} } ] }
+  end
+
+  def action
+    render status: :ok, json: {
+        payload: {
+            devices: [
+                {
+                    id: '',
+                    custom_data: {},
+                    capabilities: [
+                        capability1: {},
+                        capability2: {}
+                    ]
+                }
+            ]
+        }
+    }
+  end
+end
