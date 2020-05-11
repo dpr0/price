@@ -18,6 +18,7 @@ gem 'cocoon'
 gem 'rest-client'
 gem 'puma'
 gem 'devise'
+gem 'doorkeeper'
 gem 'omniauth-yandex'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
