@@ -29,6 +29,9 @@ html
         .btn-group.d-flex.btn-group-lg
           = link_to 'PRICE.KRSZ.RU', root_path, class: 'btn btn-primary'
       h1.text-center +7 926 199-92-64
+    - flash.each do |key, value|
+      div class=flash_class(key)
+        = value
     = yield
 
   footer.bg-black.small.text-center.text-white-50
