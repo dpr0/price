@@ -4523,6 +4523,11 @@ mustache@0.4.0:
   resolved "https://registry.yarnpkg.com/mustache/-/mustache-0.4.0.tgz#49eb3bc60fd41119c50c87aa7067ef63d1592bdd"
   integrity sha1-Ses7xg/UERnFDIeqcGfvY9FZK90=
 
+mustache@^5.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/mustache/-/mustache-4.0.1.tgz#d99beb031701ad433338e7ea65e0489416c854a2"
+  integrity sha512-yL5VE97+OXn4+Er3THSmTdCFCtx5hHWzrolvH+JObZnUYwuaG7XV+Ch4fR2cIrcYI0tFHxS7iyFYl14bW8y2sA==
+
 nan@^2.12.1, nan@^2.13.2:
   version "2.14.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.1.tgz#d7be34dfa3105b91494c3147089315eff8874b01"
