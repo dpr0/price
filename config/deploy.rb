@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-lock '3.13.0'
+lock '3.14.0'
 
 server 'krsz.ru', port: 2222, roles: %w(app db web), primary: true
 
@@ -18,9 +18,11 @@ set :deploy_to,       "/home/#{fetch(:user)}/#{fetch(:application)}"
 set :ssh_options,     forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub)
 
 set :ssh_options, {
-    user: "deploy",
+    user: 'deploy',
+    keys: '~/.ssh/id_rsa',
     forward_agent: true,
-    keys: "~/.ssh/aws-xxx.pem"
+    auth_methods: %w(publickey password),
+    port: 2222
 }
 
 namespace :deploy do

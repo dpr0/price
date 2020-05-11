@@ -21,6 +21,8 @@ gem 'devise'
 gem 'doorkeeper'
 gem 'omniauth-yandex'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 group :development do
   gem 'sqlite3'
