@@ -33,7 +33,6 @@ section.about-section.bg-black.text-center
 
 javascript:
     $( () => $('.manufacturer').on('change', (checkbox) => {
-        // debugger;
         var mnf_ids = $("#form input[type='checkbox']").map((i, el) => { if (el.checked) return el.dataset.id });
         var params = { manufacturer_ids: mnf_ids.toArray() };
         var searchParams = new URLSearchParams(window.location.search);

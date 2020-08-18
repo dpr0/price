@@ -20,7 +20,7 @@ gem 'puma'
 gem 'devise'
 gem 'doorkeeper'
 gem 'omniauth-yandex'
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-github'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
@@ -33,7 +33,7 @@ group :development do
   gem 'capistrano-rails',      require: false
   gem 'capistrano-rbenv',      require: false
   gem 'capistrano-yarn',       require: false
-  gem 'capistrano3-puma',       require: false
+  gem 'capistrano3-puma',      require: false
 end
 
 group :test do

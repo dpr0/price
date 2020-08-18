@@ -9,7 +9,7 @@ html
 
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
-  body
+  body style="background-color: rgba(22,22,22,1)"
     - if (request.user_agent =~ /Mobile/) == nil
       - ['FOOTBALL', 'PRICE', 'ABOUT', 'FRACTAL', 'WEBCAM'].reverse.each_with_index do |name, index|
         = link_to name, "https://#{name}.KRSZ.RU", class: "btn btn-primary krsz_items", style: "bottom: #{index * 65 + 10}px;"
@@ -22,16 +22,25 @@ html
           #navbarResponsive.collapse.navbar-collapse
             ul.navbar-nav.ml-auto
               li.nav-item
+                .notice = notice
+                .alert = alert
+              li.nav-item
                 a.nav-link +7 926 199-92-64
+              - if current_user
+                li.nav-item
+                  a.nav-link = current_user.email
+                li.nav-item
+                  = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+              - else
+                li.nav-item
+                  = link_to 'Sign in', new_user_session_path, class: 'nav-link'
 
     - else
       .bg-black
         .btn-group.d-flex.btn-group-lg
           = link_to 'PRICE.KRSZ.RU', root_path, class: 'btn btn-primary'
       h1.text-center +7 926 199-92-64
-    - flash.each do |key, value|
-      div class=flash_class(key)
-        = value
+
     = yield
 
   footer.bg-black.small.text-center.text-white-50
