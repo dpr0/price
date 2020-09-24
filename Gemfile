@@ -15,6 +15,8 @@ gem 'listen'
 gem 'dotenv-rails'
 gem 'rest-client'
 gem 'puma'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 group :development do
   gem 'byebug'

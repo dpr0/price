@@ -60,6 +60,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
+    bcrypt_pbkdf (1.0.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -93,6 +94,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    ed25519 (1.2.4)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -216,6 +218,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import
+  bcrypt_pbkdf
   bootsnap
   byebug
   capistrano
@@ -226,6 +229,7 @@ DEPENDENCIES
   capistrano-yarn
   capistrano3-puma
   dotenv-rails
+  ed25519
   listen
   pg
   puma
