@@ -24,16 +24,14 @@ html
               li.nav-item
                 .notice = notice
                 .alert = alert
-              li.nav-item
-                a.nav-link +7 9xx xxx-xx-xx
               - if current_user
                 li.nav-item
                   a.nav-link = current_user.email
                 li.nav-item
-                  = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+                  = link_to 'Sign out', sign_out_path, class: 'nav-link'
               - else
                 li.nav-item
-                  = link_to 'Sign in', new_user_session_path, class: 'nav-link'
+                  #firebaseui-auth-container
 
     - else
       .bg-black
@@ -55,6 +53,8 @@ html
               i.fab.fa-github
         | Copyright &copy; krsz.ru 2019-#{Time.now.year}
 
+link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+
 javascript:
     if ("#{Rails.env}" == 'production') {
         (function (m, e, t, r, i, k, a) {
@@ -65,3 +65,5 @@ javascript:
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
         ym(56435119, "init", {clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true});
     }
+
+

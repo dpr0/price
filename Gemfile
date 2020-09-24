@@ -13,19 +13,10 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'listen'
 gem 'dotenv-rails'
-gem 'chartkick'
-gem 'cocoon'
 gem 'rest-client'
 gem 'puma'
-gem 'devise'
-gem 'doorkeeper'
-gem 'omniauth-yandex'
-gem 'omniauth-github'
-gem 'ed25519'
-gem 'bcrypt_pbkdf'
 
 group :development do
-  gem 'sqlite3'
   gem 'byebug'
   gem 'capistrano',            require: false
   gem 'capistrano-bundler',    require: false
@@ -34,10 +25,4 @@ group :development do
   gem 'capistrano-rbenv',      require: false
   gem 'capistrano-yarn',       require: false
   gem 'capistrano3-puma',      require: false
-end
-
-group :test do
-  gem 'capybara', '>= 2.15'
-  gem 'chromedriver-helper'
-  gem 'selenium-webdriver'
 end

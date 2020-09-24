@@ -7,15 +7,53 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
-require("chartkick");
-require("chart.js");
-require("./cocoon");
+require("firebase")
+require("firebaseui")
 import 'bootstrap'
 import './stylesheets/application'
+import firebase from 'firebase/app';
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover()
+});
+
+var config = {
+    apiKey: "AIzaSyB2wIa2QvROQ5bb-dKXl4NVmeSU9EEzwvo",
+    authDomain: "price-e48d0.firebaseapp.com",
+    databaseURL: "https://price-e48d0.firebaseio.com",
+    projectId: "price-e48d0",
+    storageBucket: "price-e48d0.appspot.com",
+    messagingSenderId: "664403736345",
+    appId: "1:664403736345:web:e2b3ebee27ccca48a13788",
+    measurementId: "G-SEGTTM61GF"
+};
+firebase.initializeApp(config);
+firebase.analytics();
+
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+ui.start('#firebaseui-auth-container', {
+    signInOptions: [
+        {provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID, defaultCountry: 'RU'},
+        firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+        signInSuccessWithAuthResult: (currentUser) => {
+            $.post('/sign_in', {
+                    authenticity_token: $('meta[name="csrf-token"]').attr("content"),
+                    user: {
+                        uid:   currentUser.user.uid,
+                        email: currentUser.user.email,
+                        name:  currentUser.user.displayName,
+                        phone: currentUser.user.phoneNumber
+                    }
+                },
+                () => window.location.reload()
+            );
+            return false;
+        }
+    },
+    credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
 });
 
 // var componentRequireContext = require.context("components", true);

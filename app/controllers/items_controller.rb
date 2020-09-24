@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
+  # before_action :authenticate_user
 
   def index
     @items = params[:category_id].present? ? Item.where(category_id: params[:category_id]) : Item

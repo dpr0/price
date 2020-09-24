@@ -1,23 +1,24 @@
-sudo unitd --control unix:/var/run/control.unit.sock
-sudo curl -X PUT --data-binary @unit.config --unix-socket /var/run/control.unit.sock http://localhost/config
-sudo cat /usr/local/unit.log
-cd price/current
+items
+- index - список товаров
+- new/create - добавить товар (edit ?)
+- show - карточка товара
 
-rm config/credentials.yml.enc
-EDITOR="nano" rails credentials:edit
-RAILS_ENV=production bundle exec rake assets:precompile
-yarn
+categories
+- index - категории
 
-rails db:drop
-sudo -u postgres psql
-create database "zupre_production" owner "zupre";
-rails db:migrate
-rails db:seed
+sellers
+- index - список продавцов
+- create - создать магазин
 
-cd /etc/letsencrypt/live/krsz.ru
-curl -X PUT --data-binary @bundle.pem --unix-socket /var/run/control.unit.sock http://localhost/certificates/<bundle>
+carts
+- show - корзина 
 
-sudo nano /etc/nginx/sites-available/default
+favourites
+- index - избранное
 
-Player.rates!
 
+- отзывы
+- рейтинг
+
+-- поиск по товарам
+-- способы оплаты
