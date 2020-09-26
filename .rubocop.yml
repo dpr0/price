@@ -52,17 +52,17 @@ Style/MixinUsage:
     - 'bin/setup'
     - 'bin/update'
 
-Metrics/LineLength:
+Layout/LineLength:
+  Max: 190
   Exclude:
     - 'db/seeds.rb'
     - 'config/initializers/devise.rb'
-  Max: 190
 
 Style/CommentedKeyword:
   Exclude:
     - 'app/services/apartment_service.rb'
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Exclude:
     - 'app/services/apartment_service.rb'
 
@@ -98,7 +98,7 @@ Bundler/OrderedGems:
   Exclude:
     - 'Gemfile'
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   Exclude:
     - 'bin/webpack'
     - 'bin/webpack-dev-server'
@@ -168,3 +168,30 @@ Style/NumericPredicate:
 Style/MultilineBlockChain:
   Exclude:
     - 'app/controllers/bombers_controller.rb'
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: false
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: false
+Lint/MixedRegexpCaptureTypes:
+  Enabled: false
+Lint/RaiseException:
+  Enabled: false
+Lint/StructNewOverride:
+  Enabled: false
+Style/ExponentialNotation:
+  Enabled: false
+Style/HashEachMethods:
+  Enabled: false
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
+  Enabled: false
+Style/RedundantRegexpCharacterClass:
+  Enabled: false
+Style/RedundantRegexpEscape:
+  Enabled: false
+Style/SlicingWithRange:
+  Enabled: false

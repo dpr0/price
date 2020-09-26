@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 ruby '2.6.3'
 
 source 'https://rubygems.org'
@@ -15,8 +16,6 @@ gem 'listen'
 gem 'dotenv-rails'
 gem 'rest-client'
 gem 'puma'
-gem 'ed25519'
-gem 'bcrypt_pbkdf'
 
 group :development do
   gem 'byebug'
@@ -27,4 +26,6 @@ group :development do
   gem 'capistrano-rbenv',      require: false
   gem 'capistrano-yarn',       require: false
   gem 'capistrano3-puma',      require: false
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end

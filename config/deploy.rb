@@ -18,11 +18,11 @@ set :deploy_to,       "/home/#{fetch(:user)}/#{fetch(:application)}"
 set :ssh_options,     forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub)
 
 set :ssh_options, {
-    user: 'deploy',
-    keys: '~/.ssh/id_rsa',
-    forward_agent: true,
-    auth_methods: %w(publickey password),
-    port: 2222
+  user: 'deploy',
+  keys: '~/.ssh/id_rsa',
+  forward_agent: true,
+  auth_methods: %w(publickey password),
+  port: 2222
 }
 
 namespace :deploy do
