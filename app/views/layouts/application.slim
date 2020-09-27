@@ -10,34 +10,26 @@ html
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body style="background-color: rgba(22,22,22,1)"
-    - if (request.user_agent =~ /Mobile/) == nil
-      / - ['FOOTBALL', 'PRICE', 'ABOUT', 'FRACTAL', 'WEBCAM'].reverse.each_with_index do |name, index|
-      /   = link_to name, "https://#{name}.KRSZ.RU", class: "btn btn-primary krsz_items", style: "bottom: #{index * 65 + 10}px;"
-      nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
-        .container
-          = link_to 'PRICE.KRSZ.RU', root_path, class: 'nav-brand js-scroll-trigger'
-          button.navbar-toggler.navbar-toggler-right aria-controls="navbarResponsive" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarResponsive" data-toggle="collapse" type="button"
-            | Menu
-            i.fas.fa-bars
-          #navbarResponsive.collapse.navbar-collapse
-            ul.navbar-nav.ml-auto
+    nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+      .container
+        = link_to 'PRICE.KRSZ.RU', root_path, class: 'nav-brand js-scroll-trigger'
+        button.navbar-toggler.navbar-toggler-right aria-controls="navbarResponsive" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarResponsive" data-toggle="collapse" type="button"
+          | Menu
+          i.fas.fa-bars
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              .notice = notice
+              .alert = alert
+            li.nav-item
+              #firebaseui-auth-container style="display: #{'none;' if current_user}"
+            - if current_user
               li.nav-item
-                .notice = notice
-                .alert = alert
-              - if current_user
-                li.nav-item
-                  a.nav-link = current_user.email
-                li.nav-item
-                  = link_to 'Sign out', sign_out_path, class: 'nav-link'
-              - else
-                li.nav-item
-                  #firebaseui-auth-container
-
-    - else
-      .bg-black
-        .btn-group.d-flex.btn-group-lg
-          = link_to 'PRICE.KRSZ.RU', root_path, class: 'btn btn-primary'
-      h1.text-center +7 926 199-92-64
+                a.nav-link
+                  = current_user.email.present? ? current_user.email : current_user.phone
+              li.nav-item
+                = link_to 'Выйти', sign_out_path, class: 'nav-link'
+    / - if (request.user_agent =~ /Mobile/) == nil
 
     = yield
 

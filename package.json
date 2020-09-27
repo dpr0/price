@@ -15,8 +15,7 @@
     "jquery": "^3.5.0",
     "jquery-ui": "^1.12.1",
     "mustache": "^4.0.1",
-    "popper.js": "^1.16.0",
-    "turbolinks": "^5.2.0"
+    "popper.js": "^1.16.0"
   },
   "version": "0.1.0",
   "devDependencies": {

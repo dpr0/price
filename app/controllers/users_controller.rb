@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: :create
 
   def create
     @user = User.find_or_initialize_by(uid: params[:user][:uid])

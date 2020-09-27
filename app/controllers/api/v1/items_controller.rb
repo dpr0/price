@@ -1,4 +1,5 @@
 class Api::V1::ItemsController < ApplicationController
+  before_action :authorize
 
   def index
     @items = Item.all
