@@ -1,5 +1,6 @@
-class ItemsController < ApplicationController
+# frozen_string_literal: true
 
+class ItemsController < ApplicationController
   def index
     @items = params[:category_id].present? ? Item.where(category_id: params[:category_id]) : Item
     @items = @items.all.to_a.group_by(&:category_id)

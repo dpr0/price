@@ -26,11 +26,6 @@ Metrics/MethodLength:
 Style/AsciiComments:
   Enabled: false
 
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'test/test_helper.rb'
-    - 'test/channels/application_cable/connection_test.rb'
-
 Style/Documentation:
   Enabled: false
 
@@ -58,23 +53,12 @@ Layout/LineLength:
     - 'db/seeds.rb'
     - 'config/initializers/devise.rb'
 
-Style/CommentedKeyword:
-  Exclude:
-    - 'app/services/apartment_service.rb'
-
-Layout/HashAlignment:
-  Exclude:
-    - 'app/services/apartment_service.rb'
-
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
-  Exclude:
-    - 'db/migrate/20190406231958_create_forms.rb'
-    - 'db/schema.rb'
+  Enabled: true
 
 Style/NumericLiterals:
   Exclude:
@@ -194,4 +178,14 @@ Style/RedundantRegexpCharacterClass:
 Style/RedundantRegexpEscape:
   Enabled: false
 Style/SlicingWithRange:
+  Enabled: false
+Style/CommentedKeyword:
+  Enabled: false
+Layout/HashAlignment:
+  Enabled: false
+Layout/FirstHashElementIndentation:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/ClassAndModuleChildren:
   Enabled: false

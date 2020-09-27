@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
+class UsersController < ApplicationController
   def create
     @user = User.find_or_initialize_by(uid: params[:user][:uid])
     @user.attributes = { email: @user.email || params[:user][:email],

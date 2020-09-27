@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Common
   def self.links(height)
     sites.reverse.each_with_index.map do |name, index|
