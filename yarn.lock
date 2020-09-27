@@ -3534,7 +3534,7 @@ firebase@^7.21.0:
     "@firebase/storage" "0.3.43"
     "@firebase/util" "0.3.2"
 
-firebaseui-ru@^4.6.1:
+firebaseui-ru@^3.4.2:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/firebaseui-ru/-/firebaseui-ru-3.4.2.tgz#8b87ebd5705435d9161b2f6c29c638f5359c5166"
   integrity sha512-+cC8Juhr8/hdEsNezRoEuQLwuk14HFvaZDznN5py20Fd6CvErNGqA9KGyYJ0yqovqyWm0ZG7aAheV8fKb6Jd6A==
