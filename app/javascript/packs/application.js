@@ -4,11 +4,10 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start();
-// require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 require("firebase")
-require("firebaseui")
+require("firebaseui-ru")
 import 'bootstrap'
 import './stylesheets/application'
 import firebase from 'firebase/app';
@@ -34,7 +33,7 @@ firebase.analytics();
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#firebaseui-auth-container', {
     signInOptions: [
-        {provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID, defaultCountry: 'RU'},
+        {provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID, defaultCountry: 'ru'},
         firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     callbacks: {
