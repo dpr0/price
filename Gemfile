@@ -15,7 +15,12 @@ gem 'webpacker'
 gem 'listen'
 gem 'dotenv-rails'
 gem 'rest-client'
-gem 'puma'
+gem 'puma', '4.3.6'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-yandex'
+gem 'omniauth-telegram'
 
 group :development do
   gem 'byebug'

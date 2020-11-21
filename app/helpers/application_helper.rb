@@ -2,11 +2,19 @@
 
 module ApplicationHelper
   def flash_class(level)
-    case level
-    when :notice  then 'alert alert-info'
-    when :success then 'alert alert-success'
-    when :error   then 'alert alert-error'
-    when :alert   then 'alert alert-error'
-    end
+    {
+        notice:  'alert alert-info',
+        success: 'alert alert-success',
+        error:   'alert alert-error',
+        alert:   'alert alert-error'
+    }[level]
+  end
+
+  def provider_color(provider)
+    {
+        yandex: :danger,
+        github: :info,
+      telegram: :primary
+    }[provider]
   end
 end

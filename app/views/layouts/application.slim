@@ -4,7 +4,7 @@ html
     meta name="yandex-verification" content="b8209de9862994b1"
     = csrf_meta_tags
     = csp_meta_tag
-    link href="favicon.ico" rel=('shortcut icon') type="image/x-icon"
+    link href="/public/favicon.ico" rel=('shortcut icon') type="image/x-icon"
     title price.krsz.ru
 
     = stylesheet_pack_tag 'application', media: 'all'
@@ -21,21 +21,21 @@ html
             li.nav-item
               .notice = notice
               .alert = alert
-            li.nav-item
-              #firebaseui-auth-container style="display: #{'none;' if current_user}"
             - if current_user
               li.nav-item
                 a.nav-link
                   = current_user.email.present? ? current_user.email : current_user.phone
               li.nav-item
-                = link_to 'Выйти', sign_out_path, class: 'nav-link'
+                = link_to 'Выйти', destroy_user_session_path, class: 'nav-link', method: :delete
+            - else
+              = link_to 'Войти', new_user_session_path, class: 'nav-link'
     / - if (request.user_agent =~ /Mobile/) == nil
 
     = yield
 
   footer.bg-black.small.text-center.text-white-50
     - if (request.user_agent =~ /Mobile/) != nil
-      - ['FOOTBALL', 'PRICE', 'NEWS', 'FRACTAL', 'WEBCAM', 'HOME'].reverse.each_with_index do |name, index|
+      - Common.sites.each do |name|
         = link_to name, "https://#{name}.KRSZ.RU", class: "btn btn-primary", style: 'bottom'
     section.contact-section.bg-black
       .container
@@ -43,7 +43,7 @@ html
           - Common.sites.each do |name|
             = link_to "https://#{name}.krsz.ru", class: 'mx-2' do
               i.fab.fa-github
-        | Copyright &copy; krsz.ru 2019-#{Time.now.year}
+        | Copyright &copy; krsz.ru 2015-#{Time.now.year}
 
 link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
 

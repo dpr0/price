@@ -33,18 +33,21 @@ firebase.analytics();
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#firebaseui-auth-container', {
     signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         {provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID, defaultCountry: 'ru'},
-        firebase.auth.EmailAuthProvider.PROVIDER_ID
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID
     ],
     callbacks: {
         signInSuccessWithAuthResult: (currentUser) => {
-            $.post('/sign_in', {
+            $.post('/users/auth/firebase/callback', {
                     authenticity_token: $('meta[name="csrf-token"]').attr("content"),
                     user: {
-                        uid:   currentUser.user.uid,
-                        email: currentUser.user.email,
-                        name:  currentUser.user.displayName,
-                        phone: currentUser.user.phoneNumber
+                        provider: currentUser.additionalUserInfo.providerId,
+                        uid:      currentUser.user.uid,
+                        email:    currentUser.user.email,
+                        name:     currentUser.user.displayName,
+                        phone:    currentUser.user.phoneNumber
                     }
                 },
                 () => window.location.reload()

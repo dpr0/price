@@ -1,7 +1,10 @@
 AllCops:
+  NewCops: enable
   Exclude:
     - 'db/seeds/**/*'
     - 'node_modules/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
 
 Lint/UnusedMethodArgument:
   Exclude:
@@ -112,10 +115,10 @@ Layout/TrailingWhitespace:
     - 'config/environments/test.rb'
 
 Metrics/CyclomaticComplexity:
-  Max: 9
+  Max: 10
 
 Metrics/PerceivedComplexity:
-  Max: 9
+  Max: 10
 
 Style/ExpandPathArguments:
   Exclude:

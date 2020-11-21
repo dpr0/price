@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.configure do
+  config.action_mailer.default_url_options = { host: 'price.krsz.ru', port: 80 }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
