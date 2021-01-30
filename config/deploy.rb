@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-lock '3.14.1'
+lock '3.15.0'
 
 server 'krsz.ru', port: 2222, roles: %w(app db web), primary: true
 
-set :rbenv_ruby,      '2.6.3'
+set :rbenv_ruby,      '3.0.0'
 set :application,     'price'
 set :repo_url,        'git@github.com:dpr0/price.git'
 set :deploy_user,     'deploy'
