@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '2.6.3'
+ruby '3.0.0'
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -30,7 +30,7 @@ group :development do
   gem 'capistrano-rails',      require: false
   gem 'capistrano-rbenv',      require: false
   gem 'capistrano-yarn',       require: false
-  gem 'capistrano3-puma',      require: false
+  gem 'capistrano3-puma', '4.0.0', require: false
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
 end
