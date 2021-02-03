@@ -6,6 +6,11 @@ class ItemsController < ApplicationController
     @items = @items.all.to_a.group_by(&:category_id)
   end
 
+  def kayuk
+    @items = params[:item_type].present? ? Item.where(item_type: params[:item_type]) : Item
+    @items = @items.all.to_a.group_by(&:item_type)
+  end
+
   def filter
     search = {}
     search[:manufacturer_id] = params[:manufacturer_ids] if params[:manufacturer_ids].present?

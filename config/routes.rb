@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :items, only: :index do
     post :filter, on: :collection
+    get :kayuk, on: :collection
   end
 
   namespace :api, defaults: { format: :json } do

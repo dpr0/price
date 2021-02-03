@@ -1,0 +1,41 @@
+section#section1.signup-section.bg-black.text-center
+  .container
+    .row
+      .row class="mb-5 mb-lg-0"
+        .col-lg-6
+          .text-center
+            .d-flex.h-100
+              .project-text.w-100.my-auto.text-center class="text-lg-left"
+                h4.text-white Длина
+                p.mb-0.text-white-50
+                  - [450, 600, 750, 900].each do |length|
+                    div
+                      span = link_to length, kayuk_items_path(item_type: length)
+        .col-lg-6
+          .text-center
+            .d-flex.h-100
+              .project-text.w-100.my-auto.text-center class="text-lg-left"
+                h4.text-white Модель
+                p.mb-0.text-white-50
+                  = form_tag '', id: 'form', remote: true
+                    - ['Каюк-13', 'Борисыч'].each do |name|
+                      .form-check
+                        .custom-control.custom-checkbox
+                          input.custom-control-input type="checkbox" id="manufacturer_#{name}" class="manufacturer" data-id="#{name}"
+                          label.custom-control-label.text-white for="manufacturer_#{name}" = name
+
+    .filter
+      = render partial: 'filter'
+
+section.about-section.bg-black.text-center
+  .container
+    .row
+
+javascript:
+    $( () => $('.manufacturer').on('change', (checkbox) => {
+        var mnf_ids = $("#form input[type='checkbox']").map((i, el) => { if (el.checked) return el.dataset.id });
+        var params = { manufacturer_ids: mnf_ids.toArray() };
+        var searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.has('category_id')) params.category_id = searchParams.get('category_id');
+        $.post("#{filter_items_path}", params);
+    }));
